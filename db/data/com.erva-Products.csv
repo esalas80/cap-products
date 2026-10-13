@@ -1,0 +1,11 @@
+ID,Name,Description,ImageUrl,ReleaseDate,DiscontinuedDate,Price,Height,Width,Depth,Quantity
+5f2b1c7e-1a2b-4c3d-8e9f-000000000001,Bread,Low fat bread,https://via.placeholder.com/150?text=Bread,2023-01-15T00:00:00Z,,2.50,5.00,10.00,20.00,120.00
+5f2b1c7e-1a2b-4c3d-8e9f-000000000002,Milk,Low fat milk,https://via.placeholder.com/150?text=Milk,2023-02-01T00:00:00Z,,3.50,25.00,8.00,8.00,80.00
+5f2b1c7e-1a2b-4c3d-8e9f-000000000003,Vint Soda,Americana Variety - Mix of 6 flavors,https://via.placeholder.com/150?text=Soda,2022-11-10T00:00:00Z,,20.90,12.00,18.00,25.00,45.00
+5f2b1c7e-1a2b-4c3d-8e9f-000000000004,Havina Cola,The Original Key Lime Cola,https://via.placeholder.com/150?text=Cola,2021-06-20T00:00:00Z,2024-12-31T00:00:00Z,22.80,12.00,7.00,7.00,0.00
+5f2b1c7e-1a2b-4c3d-8e9f-000000000005,Fruit Punch,"Mango flavor, 8.3 Ounce Cans (Pack of 24)",https://via.placeholder.com/150?text=Punch,2023-05-05T00:00:00Z,,22.50,12.00,30.00,20.00,60.00
+5f2b1c7e-1a2b-4c3d-8e9f-000000000006,Cranberry Juice,16-Ounce Plastic Bottles (Pack of 12),https://via.placeholder.com/150?text=Juice,2022-08-12T00:00:00Z,,22.80,20.00,25.00,15.00,35.00
+5f2b1c7e-1a2b-4c3d-8e9f-000000000007,Pink Lemonade,36 Ounce Cans (Pack of 3),https://via.placeholder.com/150?text=Lemonade,2023-03-30T00:00:00Z,,18.80,15.00,20.00,10.00,50.00
+5f2b1c7e-1a2b-4c3d-8e9f-000000000008,Coffee,Bulk size 5 Pound,https://via.placeholder.com/150?text=Coffee,2020-09-01T00:00:00Z,,35.00,30.00,20.00,12.00,25.00
+5f2b1c7e-1a2b-4c3d-8e9f-000000000009,Orange Juice,Orange Juice 32 Ounce,https://via.placeholder.com/150?text=Orange,2023-07-18T00:00:00Z,,5.50,24.00,9.00,9.00,90.00
+5f2b1c7e-1a2b-4c3d-8e9f-000000000010,Green Tea,"Organic green tea, 100 bags",https://via.placeholder.com/150?text=Tea,2022-04-22T00:00:00Z,,12.75,8.00,15.00,7.00,70.00
