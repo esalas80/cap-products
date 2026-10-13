@@ -1,31 +1,57 @@
 namespace com.erva;
 
+type Gender: String enum
+{
+    Male   = 'M';
+    Female = 'F';
+};
+
+/**"Enumerdaores" */
+// entity Order {
+//     clienteGender : Gender;
+//     status: Integer enum {
+//         submitted = 1;
+//         fulfilled = 2;
+//         Shipped = 3;
+//         Cancelled = 4;
+//     };
+//     Priority: Integer enum {
+//         Low = 1;
+//         Medium = 2;
+//         High = 3;
+//     };
+// }
+
+type Address {
+    Street     : String;
+    City       : String;
+    State      : String;
+    PostalCode : String(5);
+    Country    : String(3);
+};
 entity Products {
     key ID               : UUID;
         Name             : String;
         Description      : String;
         ImageUrl         : String;
-        ReleaseDate      : DateTime;
-        DiscontinuedDate : DateTime;
+        ReleaseDate      : DateTime default $now();
+        DiscontinuedDate : DateTime default $now();
         Price            : Decimal(16, 2);
-        Height           : Decimal(16, 2);
+        Height           : type of Price; //Decimal(16, 2);
         Width            : Decimal(16, 2);
         Depth            : Decimal(16, 2);
         Quantity         : Decimal(16, 2);
 };
 
-entity Supplier {
+entity Suppliers {
     key ID         : UUID;
-        Name       : String;
-        Street     : String;
-        City       : String;
-        State      : String;
-        PostalCode : String(5);
-        Country    : String(3);
+        Name       : Products:Name;
+        Address    : Address;
         Email      : String;
         Phone      : String;
         Fax        : String;
 };
+
 
 entity Category {
     key ID   : String(1);
@@ -66,6 +92,7 @@ entity ProductReview {
 };
 
 entity SalesData {
-    key DeliveryDate : DateTime;
+    key ID : UUID;
+        DeliveryDate : DateTime;
         Revenue      : Decimal(16, 2);
 };
