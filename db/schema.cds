@@ -29,9 +29,11 @@ type Address {
     PostalCode : String(5);
     Country    : String(3);
 };
+
+//Asociaciones no administradas
 entity Products {
     key ID               : UUID;
-        Name             : String;
+        Name             : String not null;
         Description      : String;
         ImageUrl         : String;
         ReleaseDate      : DateTime default $now();
@@ -41,7 +43,19 @@ entity Products {
         Width            : Decimal(16, 2);
         Depth            : Decimal(16, 2);
         Quantity         : Decimal(16, 2);
+
+        //Asociaciones no administradas
+        // Supplier_Id        :UUID;
+        // ToSupplier: Association to one Suppliers on ToSupplier.ID = Supplier_Id;
+        // UnitOFMeasure_Id      : String(2);
+        // ToUnitOfMeasure: Association to  UnitOfMeasure on ToUnitOfMeasure.ID = UnitOFMeasure_Id;
+
+        //Asociaciones  administradas
+
+        Supplier: Association to one Suppliers;
+        UnitOfMeasure: Association to one UnitOfMeasure;
 };
+
 
 entity Suppliers {
     key ID         : UUID;
@@ -96,3 +110,8 @@ entity SalesData {
         DeliveryDate : DateTime;
         Revenue      : Decimal(16, 2);
 };
+
+extend Products with {
+    PriceCondition : String(2);
+    PriceDetermination : String(3);
+};  
