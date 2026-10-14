@@ -34,7 +34,7 @@ type Address {
 };
 
 //Asociaciones no administradas
-entity Products :  ciud, managed {
+entity Products :  cuid, managed {
 
         Name             : String not null;
         Description      : String;
