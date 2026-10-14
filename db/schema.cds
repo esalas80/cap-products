@@ -1,8 +1,11 @@
 namespace com.erva;
 
-type Gender: String enum
-{
-    Male   = 'M';
+using 
+{ 
+    cuid, managed
+} from '@sap/cds/common';
+type Gender : String enum {
+    Male = 'M';
     Female = 'F';
 };
 
@@ -31,8 +34,8 @@ type Address {
 };
 
 //Asociaciones no administradas
-entity Products {
-    key ID               : UUID;
+entity Products :  ciud, managed {
+
         Name             : String not null;
         Description      : String;
         ImageUrl         : String;
@@ -51,19 +54,38 @@ entity Products {
         // ToUnitOfMeasure: Association to  UnitOfMeasure on ToUnitOfMeasure.ID = UnitOFMeasure_Id;
 
         //Asociaciones  administradas
-
-        Supplier: Association to one Suppliers;
-        UnitOfMeasure: Association to one UnitOfMeasure;
+        Supplier         : Association to Suppliers;
+        UnitOfMeasure    : Association to UnitOfMeasure;
+        Currency         : Association to Currency;
+        DimensionUnit    : Association to DimensionUnits;
+        Category         : Association to Category;
+        SalesData        : Association to many SalesData
+                               on SalesData.Product = $self;
+        Reviews          : Association to many ProductReview
+                               on Reviews.Product = $self;
 };
 
+entity Orders {
+    key ID       : UUID;
+        Date     : Date;
+        Customer : String;
+        Item : Composition of many OrderItems on Item.Order = $self;
+}
+
+entity OrderItems {
+    key ID        : UUID;
+        Order       : Association to Orders;
+        Product : Association to Products;
+        Quantity  : Integer;
+};
 
 entity Suppliers {
-    key ID         : UUID;
-        Name       : Products:Name;
-        Address    : Address;
-        Email      : String;
-        Phone      : String;
-        Fax        : String;
+    key ID      : UUID;
+        Name    : Products:Name;
+        Address : Address;
+        Email   : String;
+        Phone   : String;
+        Fax     : String;
 };
 
 
@@ -103,15 +125,17 @@ entity ProductReview {
     key Name    : String;
         Rating  : Integer;
         Comment : String;
+        Product : Association to Products;
 };
 
 entity SalesData {
-    key ID : UUID;
+    key ID           : UUID;
         DeliveryDate : DateTime;
         Revenue      : Decimal(16, 2);
+        Product      : Association to Products;
 };
 
 extend Products with {
-    PriceCondition : String(2);
+    PriceCondition     : String(2);
     PriceDetermination : String(3);
-};  
+};
